@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
@@ -16,12 +16,44 @@ const Order = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+  const [services, setServices] = useState(serviceData);
+
+  // useEffect(() => {
+  //   if (services.length) {
+  //     fetch("http://localhost:5000/services")
+  //       .then((res) => res.json())
+  //       .then((data) => setServices(data));
+  //   }
+  // }, [services]);
+
+  // console.log(services);
+
   const service = serviceData.find(
     (srvc) => srvc.id.toString() === serviceId.toString()
   );
 
   const onSubmit = (values) => {
-    console.log(values);
+    const orderDetails = {
+      ...loggedInUser,
+      name: values.fullName,
+      email: values.email,
+      orderedService: values.orderedService,
+      description: values.description,
+      price: values.price,
+      orderTime: new Date(),
+    };
+
+    fetch("http://localhost:5000/addOrder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("Your Order Placed Successfully");
+        }
+      });
   };
 
   const containerStyle = {
@@ -113,11 +145,26 @@ const Order = () => {
 
           {/*Price & File Upload */}
 
-          <div className="row form-group">
+          <div className="row">
             <div className="col">
-              <label htmlFor="price">Price</label>
+              <div className="form-group">
+                <label htmlFor="price">Price</label>
+                <input
+                  name="price"
+                  placeholder="Price"
+                  className={`form-control`}
+                  ref={register({ required: "Price is required" })}
+                />
+                <ErrorMessage
+                  className="invalid-feedback"
+                  name="description"
+                  as="div"
+                  errors={errors}
+                />
+              </div>
+              {/* <label htmlFor="price">Price</label>
 
-              <input type="text" className="form-control" placeholder="Price" />
+              <input type="text" className="form-control" placeholder="Price" /> */}
             </div>
             <div className="col">
               <label htmlFor="fileUpload">Project File</label>

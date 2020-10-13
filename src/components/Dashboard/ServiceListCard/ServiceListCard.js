@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ServiceListCard.css";
 
 const ServiceListCard = (props) => {
-  const { image, name, id, description } = props.service;
+  const { image, orderedService, id, description } = props.service;
   return (
     <div style={{ marginTop: 50 }} className="col-md-6">
       <div style={{ padding: 30 }} className="card serviceList-card">
@@ -12,7 +12,7 @@ const ServiceListCard = (props) => {
           <button className="btn btn-brand text-white">Status</button>
         </div>
         <div className="card-body">
-          <h5 className="card-title"> {name} </h5>
+          <h5 className="card-title"> {orderedService} </h5>
           <p className="card-text">{description}</p>
         </div>
       </div>

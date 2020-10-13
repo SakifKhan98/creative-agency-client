@@ -3,6 +3,7 @@ import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import { reviewData } from "../../../fakeData/reviewData";
 
 const PostReview = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -10,8 +11,25 @@ const PostReview = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   const onSubmit = (values) => {
-    console.log(values);
+    const reviewDetails = {
+      name: values.name,
+      job: values.job,
+      description: values.description,
+    };
+
+    fetch("http://localhost:5000/addReview", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(reviewDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("Your Review Posted Successfully");
+        }
+      });
   };
+
   const containerStyle = {
     backgroundColor: "#F4F7FC",
     border: "none",
@@ -29,10 +47,10 @@ const PostReview = () => {
           </div>
           <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
-              <label htmlFor="fullName">Name</label>
+              <label htmlFor="name">Name</label>
 
               <input
-                name="fullName"
+                name="name"
                 placeholder="Your name"
                 defaultValue={loggedInUser.name}
                 className={`form-control`}
@@ -46,10 +64,10 @@ const PostReview = () => {
               errors={errors}
             />
             <div className="form-group">
-              <label htmlFor="companyName">Company Name</label>
+              <label htmlFor="job">Company Name</label>
 
               <input
-                name="companyName"
+                name="job"
                 placeholder="Company's name, Designation"
                 className={`form-control`}
                 ref={register({ required: "Company name is required" })}

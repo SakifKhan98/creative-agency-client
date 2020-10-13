@@ -5,9 +5,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import { logo } from "../../../images/logos/logo.png";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { serviceData } from "../../../fakeData/serviceData";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 const MakeAdmin = () => {
   const { register, handleSubmit, errors } = useForm();

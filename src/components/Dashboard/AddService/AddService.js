@@ -11,8 +11,25 @@ import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 const AddService = () => {
   const { register, handleSubmit, watch, errors } = useForm();
+
   const onSubmit = (values) => {
-    console.log(values);
+    const serviceDetails = {
+      name: values.name,
+      image: values.image,
+      description: values.description,
+    };
+
+    fetch("http://localhost:5000/addService", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(serviceDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("New Service Added Successfully");
+        }
+      });
   };
 
   const containerStyle = {
