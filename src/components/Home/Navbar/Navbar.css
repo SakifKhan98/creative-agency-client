@@ -1,0 +1,11 @@
+.logo {
+  width: 150px;
+  height: 47px;
+}
+.btn-brand {
+  width: 134px;
+  height: 45px;
+  border-radius: 5px !important;
+  background-color: #111430 !important;
+  border-style: none !important;
+}
