@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../images/logos/logo.png";
+import { HashLink } from "react-router-hash-link";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -32,22 +33,27 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link mr-5" to="/portfolio">
+            <HashLink className="nav-link mr-5" to="/#portfolio">
               Our Portfolio
-            </Link>
+            </HashLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link mr-5" to="/team">
-              Our Team
-            </Link>
+            <HashLink className="nav-link mr-5" to="/#reviews">
+              Reviews
+            </HashLink>
+          </li>
+          <li className="nav-item">
+            <HashLink className="nav-link mr-5" to="/#footer">
+              Contact Us
+            </HashLink>
           </li>
           <li className="nav-item">
             <Link className="nav-link mr-5" to="/dashboard">
-              Contact Us
+              Dashboard
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link mr-5 text-white" to="#">
+            <Link className="nav-link mr-5 text-white" to="/login">
               <button className="btn btn-brand text-white">Login</button>
             </Link>
           </li>

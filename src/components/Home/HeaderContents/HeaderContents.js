@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink } from "react-router-hash-link";
 import headerImg from "../../../images/logos/frame.png";
 import "./HeaderContents.css";
 
@@ -19,7 +20,9 @@ const HeaderContents = () => {
             id repudiandae itaque.
           </small>
         </p>
-        <button className="btn-brand text-white">Hire Us</button>
+        <HashLink to="/#services">
+          <button className="btn-brand text-white">Hire Us</button>
+        </HashLink>
       </div>
       <div className="col-md-7 pl-5">
         <img className="frame img-fluid" src={headerImg} alt="" />

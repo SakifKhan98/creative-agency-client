@@ -4,6 +4,7 @@ import PortfolioCard from "../PortfolioCard/PortfolioCard";
 const Portfolio = () => {
   return (
     <div
+      id="portfolio"
       style={{
         height: 725,
         backgroundColor: "#111430",

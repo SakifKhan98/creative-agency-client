@@ -6,7 +6,7 @@ const Services = () => {
   const [services, setServices] = useState(serviceData);
   console.log(services);
   return (
-    <div style={{ marginTop: 60 }}>
+    <div id="services" style={{ marginTop: 60 }}>
       <h1 className="text-center" style={{ fontWeight: 700 }}>
         Provide awesome <span style={{ color: "#7AB259" }}>services</span>{" "}
       </h1>

@@ -5,7 +5,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <div className="row footer-home">
+      <div id="footer" className="row footer-home">
         <div className="col-md-3 offset-md-1">
           <h1 style={{ fontWeight: 700, color: "#2D2D2D" }}>
             Let us handle your <br /> project, professionally
