@@ -12,7 +12,9 @@ const Dashboard = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   return (
     <section style={containerStyle} className="container-fluid row">
-      <Sidebar></Sidebar>
+      <div>
+        <Sidebar></Sidebar>
+      </div>
       <div className="col-md-10 p-4 pr-5">
         <div className="row mb-5 justify-content-md-center">
           <center>
