@@ -3,7 +3,6 @@ import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { reviewData } from "../../../fakeData/reviewData";
 
 const PostReview = () => {
   const { register, handleSubmit, errors } = useForm();

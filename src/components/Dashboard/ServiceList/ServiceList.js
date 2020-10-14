@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { UserContext } from "../../../App";
-import { serviceData } from "../../../fakeData/serviceData";
 import ServiceListCard from "../ServiceListCard/ServiceListCard";
 import Sidebar from "../Sidebar/Sidebar";
 
@@ -15,7 +14,6 @@ const ServiceList = () => {
       .then((res) => res.json())
       .then((data) => setServicesList(data));
   }, []);
-  console.log(servicesList);
   const containerStyle = {
     backgroundColor: "#F4F7FC",
     border: "none",
@@ -24,13 +22,19 @@ const ServiceList = () => {
     <div>
       <section style={containerStyle} className="container-fluid row">
         <Sidebar></Sidebar>
-
-        <div className="row col-lg-8">
-          {servicesList.map((srvclst) => (
-            <ServiceListCard key={srvclst._id} service={srvclst}>
-              {srvclst.orderedService}
-            </ServiceListCard>
-          ))}
+        <div className="col-lg-6">
+          <div className="row mb-5 justify-content-md-center">
+            <center>
+              <h1 className="mt-5 text-center">Ordered Services</h1>
+            </center>
+          </div>
+          <div className="row">
+            {servicesList.map((srvclst) => (
+              <ServiceListCard key={srvclst._id} service={srvclst}>
+                {srvclst.orderedService}
+              </ServiceListCard>
+            ))}
+          </div>
         </div>
       </section>
     </div>

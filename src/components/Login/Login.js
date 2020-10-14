@@ -63,19 +63,15 @@ const Login = () => {
       .auth()
       .signInWithPopup(provider)
       .then(function (result) {
-        console.log(result.user);
         const { displayName, email, photoURL } = result.user;
         const signedInUser = { name: displayName, email, image: photoURL };
         setLoggedInUser(signedInUser);
         history.replace(from);
       })
       .catch(function (error) {
-        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // The email of the user's account used.
         var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
       });

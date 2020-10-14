@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Dropdown } from "react-bootstrap";
-import { UserContext } from "../../../App";
+import React, { useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
 
 const ServiceListAdmin = () => {
   const [servicesList, setServicesList] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/allServicesOrdered")
@@ -59,16 +57,15 @@ const ServiceListAdmin = () => {
                 <td>{srvclst.orderedService}</td>
                 <td>{srvclst.description}</td>
                 <td>
-                  <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Done
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#">Pending</Dropdown.Item>
-                      <Dropdown.Item href="#">On Going</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <Form>
+                    <Form.Group controlId="exampleForm.ControlSelect1">
+                      <Form.Control className="btn-success" as="select">
+                        <option className="bg-success">Done</option>
+                        <option className="bg-warning">Pending</option>
+                        <option className="bg-danger">On Going</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form>
                 </td>
               </tr>
             ))}

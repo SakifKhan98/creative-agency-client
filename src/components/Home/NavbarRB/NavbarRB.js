@@ -3,7 +3,7 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../images/logos/logo.png";
 import { HashLink } from "react-router-hash-link";
-import "./Navbar.css";
+import "./NavbarRB.css";
 
 const NavbarRB = () => {
   return (

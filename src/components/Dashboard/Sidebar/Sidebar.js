@@ -8,16 +8,14 @@ import {
   faHdd,
   faComments,
   faPlus,
-  faCog,
   faSignOutAlt,
   faHome,
   faGripHorizontal,
   faUserPlus,
-  faUsers,
   faList,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
 import { UserContext } from "../../../App";
+import { HashLink } from "react-router-hash-link";
 
 const Sidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -75,9 +73,9 @@ const Sidebar = () => {
         ) : (
           <div>
             <li>
-              <Link to="/order" className="text-white">
+              <HashLink to="/#services" className="text-white">
                 <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span>
-              </Link>
+              </HashLink>
             </li>
             <li>
               <Link to="/serviceList" className="text-white">

@@ -1,15 +1,10 @@
-import React, { useContext, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { UserContext } from "../../../App";
+import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import { logo } from "../../../images/logos/logo.png";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
 const MakeAdmin = () => {
   const { register, handleSubmit, errors } = useForm();
-
-  const [info, setInfo] = useState({});
 
   const onSubmit = (values) => {
     const adminDetails = {
@@ -64,7 +59,6 @@ const MakeAdmin = () => {
               errors={errors}
             />
           </div>
-
           <button className="btn btn-success text-white" type="submit">
             Submit
           </button>
