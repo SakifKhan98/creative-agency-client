@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NotFound from "./components/NotFound/NotFound";
 import Order from "./components/Dashboard/Order/Order";
 import PostReview from "./components/Dashboard/PostReview/PostReview";
@@ -24,9 +25,9 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/serviceRegister/:serviceId">
+          <PrivateRoute path="/serviceRegister/:serviceId">
             <Order></Order>
-          </Route>
+          </PrivateRoute>
           <Route path="/postReview">
             <PostReview></PostReview>
           </Route>
@@ -42,9 +43,9 @@ function App() {
           <Route path="/makeAdmin">
             <MakeAdmin></MakeAdmin>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>>
-          </Route>
+          </PrivateRoute>
           <Route path="/serviceListAdmin">
             <ServiceListAdmin></ServiceListAdmin>
           </Route>

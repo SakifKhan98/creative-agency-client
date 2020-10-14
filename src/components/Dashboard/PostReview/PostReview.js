@@ -9,11 +9,13 @@ const PostReview = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser);
 
   const onSubmit = (values) => {
     const reviewDetails = {
       name: values.name,
       job: values.job,
+      image: values.image,
       description: values.description,
     };
 
@@ -55,6 +57,23 @@ const PostReview = () => {
                 defaultValue={loggedInUser.name}
                 className={`form-control`}
                 ref={register({ required: "Name is required" })}
+              />
+            </div>
+            <ErrorMessage
+              className="invalid-feedback"
+              name="fullName"
+              as="div"
+              errors={errors}
+            />
+            <div className="form-group">
+              <label htmlFor="image">Image</label>
+
+              <input
+                name="image"
+                placeholder="Your Image"
+                defaultValue={loggedInUser.image}
+                className={`form-control`}
+                ref={register({ required: "Image is required" })}
               />
             </div>
             <ErrorMessage

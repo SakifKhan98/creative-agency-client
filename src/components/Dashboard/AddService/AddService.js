@@ -1,37 +1,8 @@
-import React, { useContext, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { UserContext } from "../../../App";
+import React, { useState } from "react";
+
 import Sidebar from "../Sidebar/Sidebar";
-import { logo } from "../../../images/logos/logo.png";
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
-import { serviceData } from "../../../fakeData/serviceData";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 const AddService = () => {
-  // const { register, handleSubmit, watch, errors } = useForm();
-
-  // const onSubmit = (values) => {
-  //   const serviceDetails = {
-  //     name: values.name,
-  //     image: values.image,
-  //     description: values.description,
-  //   };
-
-  //   fetch("http://localhost:5000/addService", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(serviceDetails),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data) {
-  //         alert("New Service Added Successfully");
-  //       }
-  //     });
-  // };
-
   const [info, setInfo] = useState({});
   const [file, setFile] = useState(null);
 
@@ -81,53 +52,6 @@ const AddService = () => {
             <h1 className="mt-5 text-center">Add Services</h1>
           </center>
         </div>
-        {/* <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
-            <label htmlFor="name">Service Title</label>
-
-            <input
-              name="name"
-              placeholder="Enter Title"
-              className={`form-control`}
-              ref={register({ required: "Service Title is required" })}
-            />
-          </div>
-          <ErrorMessage
-            className="invalid-feedback"
-            name="fullName"
-            as="div"
-            errors={errors}
-          />
-
-          <div className="form-group">
-            <label htmlFor="description">Description</label>
-            <input
-              style={{ height: 100 }}
-              name="description"
-              placeholder="Enter Description"
-              className={`form-control`}
-              ref={register({ required: "Description is required" })}
-            />
-            <ErrorMessage
-              className="invalid-feedback"
-              name="description"
-              as="div"
-              errors={errors}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="fileUpload">Icon</label>
-            <button type="button" className="btn btn-outline-success btn-block">
-              {" "}
-              <FontAwesomeIcon icon={faCloudUploadAlt} /> <bn />
-              Upload Images
-            </button>
-          </div>
-
-          <button className="btn btn-success text-white" type="submit">
-            Submit
-          </button>
-        </form> */}
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
