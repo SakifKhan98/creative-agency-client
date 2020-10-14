@@ -30,7 +30,7 @@ const AddService = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert("Your Review Posted Successfully");
+        alert("New Service Added Successfully");
       })
       .catch((error) => {
         console.error(error);

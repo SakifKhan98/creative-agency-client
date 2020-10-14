@@ -47,7 +47,7 @@ const NavbarRB = () => {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link className="nav-link mr-5 text-white" to="/login">
+              <Link className="nav-link mr-5 text-white" to="/dashboard">
                 <button className="btn btn-brand text-white">Login</button>
               </Link>
             </Nav.Item>
