@@ -23,7 +23,7 @@ const Order = () => {
       .then((res) => res.json())
       .then((data) => {
         const service = data.find(
-          (srvc) => srvc.id.toString() === serviceId.toString()
+          (srvc) => srvc._id.toString() === serviceId.toString()
         );
         setServices(service);
       });

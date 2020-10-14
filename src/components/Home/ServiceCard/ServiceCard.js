@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./ServiceCard.css";
 
 const ServiceCard = (props) => {
-  const { image, name, description, id } = props.service;
+  const { image, name, description, _id } = props.service;
   return (
     <div
       style={{ paddingRight: 50, paddingLeft: 50 }}
@@ -11,13 +11,19 @@ const ServiceCard = (props) => {
     >
       <Link
         style={{ textDecoration: "none", color: "black" }}
-        to={"/serviceRegister/" + id}
+        to={"/serviceRegister/" + _id}
       >
         <div
           style={{ margin: 30, padding: 20 }}
           className="row card text-center service-card"
         >
-          <img style={{ width: 74 }} className="mx-auto" src={image} alt="" />
+          {/* <img style={{ width: 74 }} className="mx-auto" src={image} alt="" /> */}
+
+          <img
+            style={{ width: 74 }}
+            className="mx-auto"
+            src={`data:image/png;base64,${image.img}`}
+          />
           <div className=" card-body">
             <h5 style={{ fontWeight: 800 }} className="card-title">
               {name}

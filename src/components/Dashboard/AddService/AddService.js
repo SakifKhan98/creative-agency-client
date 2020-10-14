@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
@@ -10,25 +10,60 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 const AddService = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  // const { register, handleSubmit, watch, errors } = useForm();
 
-  const onSubmit = (values) => {
-    const serviceDetails = {
-      name: values.name,
-      image: values.image,
-      description: values.description,
-    };
+  // const onSubmit = (values) => {
+  //   const serviceDetails = {
+  //     name: values.name,
+  //     image: values.image,
+  //     description: values.description,
+  //   };
+
+  //   fetch("http://localhost:5000/addService", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(serviceDetails),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data) {
+  //         alert("New Service Added Successfully");
+  //       }
+  //     });
+  // };
+
+  const [info, setInfo] = useState({});
+  const [file, setFile] = useState(null);
+
+  const handleBlur = (e) => {
+    const newInfo = { ...info };
+    newInfo[e.target.name] = e.target.value;
+    setInfo(newInfo);
+  };
+
+  const handleFileChange = (e) => {
+    const newFile = e.target.files[0];
+    setFile(newFile);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("name", info.name);
+    formData.append("description", info.description);
 
     fetch("http://localhost:5000/addService", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(serviceDetails),
+      body: formData,
     })
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
-        if (data) {
-          alert("New Service Added Successfully");
-        }
+        alert("Your Review Posted Successfully");
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
@@ -46,12 +81,12 @@ const AddService = () => {
             <h1 className="mt-5 text-center">Add Services</h1>
           </center>
         </div>
-        <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
+        {/* <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
-            <label htmlFor="ServiceName">Service Title</label>
+            <label htmlFor="name">Service Title</label>
 
             <input
-              name="ServiceName"
+              name="name"
               placeholder="Enter Title"
               className={`form-control`}
               ref={register({ required: "Service Title is required" })}
@@ -90,6 +125,42 @@ const AddService = () => {
           </div>
 
           <button className="btn btn-success text-white" type="submit">
+            Submit
+          </button>
+        </form> */}
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Service Title</label>
+            <input
+              onBlur={handleBlur}
+              type="text"
+              className="form-control"
+              name="name"
+              placeholder="Enter Title"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Description</label>
+            <input
+              onBlur={handleBlur}
+              type="text"
+              className="form-control"
+              name="description"
+              placeholder="Enter Description"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="file">Upload Icon</label>
+            <input
+              onChange={handleFileChange}
+              type="file"
+              className="form-control"
+              placeholder="Upload Image"
+            />
+          </div>
+          <button type="submit" className="btn btn-success">
             Submit
           </button>
         </form>

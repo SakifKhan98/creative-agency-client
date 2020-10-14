@@ -18,7 +18,7 @@ const Services = () => {
       </h1>
       <div className="row justify-content-around">
         {services.map((srvc) => (
-          <ServiceCard key={srvc.id} service={srvc}>
+          <ServiceCard key={srvc._id} service={srvc}>
             {srvc.name}
           </ServiceCard>
         ))}
