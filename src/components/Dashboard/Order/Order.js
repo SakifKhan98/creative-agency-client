@@ -5,7 +5,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import { logo } from "../../../images/logos/logo.png";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { serviceData } from "../../../fakeData/serviceData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,21 +15,19 @@ const Order = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  const [services, setServices] = useState(serviceData);
+  const [services, setServices] = useState({});
+  const [file, setFile] = useState(null);
 
-  // useEffect(() => {
-  //   if (services.length) {
-  //     fetch("http://localhost:5000/services")
-  //       .then((res) => res.json())
-  //       .then((data) => setServices(data));
-  //   }
-  // }, [services]);
-
-  // console.log(services);
-
-  const service = serviceData.find(
-    (srvc) => srvc.id.toString() === serviceId.toString()
-  );
+  useEffect(() => {
+    fetch("http://localhost:5000/services")
+      .then((res) => res.json())
+      .then((data) => {
+        const service = data.find(
+          (srvc) => srvc.id.toString() === serviceId.toString()
+        );
+        setServices(service);
+      });
+  }, []);
 
   const onSubmit = (values) => {
     const orderDetails = {
@@ -40,9 +37,9 @@ const Order = () => {
       orderedService: values.orderedService,
       description: values.description,
       price: values.price,
+      file: values.file,
       orderTime: new Date(),
     };
-
     fetch("http://localhost:5000/addOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -55,6 +52,24 @@ const Order = () => {
         }
       });
   };
+
+  // const onSubmit = (event) => {
+  //   const files = event.file;
+  //   const formData = new FormData();
+  //   formData.append("myFile", files[0]);
+
+  //   fetch("http://localhost:5000/addOrder", {
+  //     method: "POST",
+  //     body: formData,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
 
   const containerStyle = {
     backgroundColor: "#F4F7FC",
@@ -115,7 +130,7 @@ const Order = () => {
             <input
               name="orderedService"
               placeholder="Service Name"
-              defaultValue={service.name}
+              defaultValue={services.name}
               className={`form-control`}
               ref={register({ required: "Selected Activity is required" })}
             />
@@ -142,7 +157,6 @@ const Order = () => {
               errors={errors}
             />
           </div>
-
           {/*Price & File Upload */}
 
           <div className="row">
@@ -162,22 +176,31 @@ const Order = () => {
                   errors={errors}
                 />
               </div>
-              {/* <label htmlFor="price">Price</label>
-
-              <input type="text" className="form-control" placeholder="Price" /> */}
             </div>
             <div className="col">
-              <label htmlFor="fileUpload">Project File</label>
-              <button
-                type="button"
-                className="btn btn-outline-success btn-block"
-              >
-                {" "}
-                <FontAwesomeIcon icon={faCloudUploadAlt} /> <bn />
-                Upload Project File
-              </button>
+              <div className="form-group">
+                <label htmlFor="fileUpload">Project File</label>
+                <span className="btn btn-outline-success btn-block">
+                  {" "}
+                  <FontAwesomeIcon icon={faCloudUploadAlt} /> <bn />
+                  <input
+                    name="file"
+                    placeholder="Upload Your File Here"
+                    className={`form-control`}
+                    type="file"
+                    ref={register({ required: "File is required" })}
+                  />
+                </span>
+                <ErrorMessage
+                  className="invalid-feedback"
+                  name="description"
+                  as="div"
+                  errors={errors}
+                />
+              </div>
             </div>
           </div>
+
           <button className="btn btn-brand text-white" type="submit">
             Send
           </button>

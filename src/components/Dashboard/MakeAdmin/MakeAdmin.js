@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
@@ -8,8 +8,11 @@ import { ErrorMessage } from "@hookform/error-message";
 
 const MakeAdmin = () => {
   const { register, handleSubmit, errors } = useForm();
+
+  const [info, setInfo] = useState({});
+
   const onSubmit = (values) => {
-    console.log(values);
+    setInfo(values.email);
   };
 
   const containerStyle = {
