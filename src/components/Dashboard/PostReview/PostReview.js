@@ -18,7 +18,7 @@ const PostReview = () => {
       description: values.description,
     };
 
-    fetch("http://localhost:5000/addReview", {
+    fetch("https://still-journey-92404.herokuapp.com/addReview", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewDetails),
@@ -40,7 +40,7 @@ const PostReview = () => {
     <div>
       <section style={containerStyle} className="container-fluid row">
         <Sidebar></Sidebar>
-        <div className="col-lg-6">
+        <div className="col-md-10 p-4 pr-5">
           <div className="row mb-5 justify-content-md-center">
             <center>
               <h1 className="mt-5 text-center">Post A Review</h1>

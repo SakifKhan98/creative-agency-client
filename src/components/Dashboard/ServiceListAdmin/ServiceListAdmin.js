@@ -6,7 +6,7 @@ const ServiceListAdmin = () => {
   const [servicesList, setServicesList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allServicesOrdered")
+    fetch("https://still-journey-92404.herokuapp.com/allServicesOrdered")
       .then((res) => res.json())
       .then((data) => setServicesList(data));
   }, []);
@@ -18,7 +18,7 @@ const ServiceListAdmin = () => {
   return (
     <section style={containerStyle} className="container-fluid row">
       <Sidebar></Sidebar>
-      <div style={{ marginTop: 30 }} className=" col">
+      <div style={{ marginTop: 30 }} className=" col-md-10 p-4 pr-5">
         <h3 className="text-dark">Services List</h3>
         <table className="table table-borderless">
           <thead class="thead-dark">

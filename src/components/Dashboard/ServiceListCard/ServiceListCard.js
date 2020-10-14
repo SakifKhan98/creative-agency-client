@@ -8,7 +8,6 @@ const ServiceListCard = (props) => {
       <div style={{ padding: 30 }} className="card serviceList-card">
         <div className="d-flex justify-content-between">
           <img className="service-image" src={image} alt="" />
-
           <button className="btn btn-brand bg-success text-white">
             On Going
           </button>

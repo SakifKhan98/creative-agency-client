@@ -18,7 +18,7 @@ const Order = () => {
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://still-journey-92404.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => {
         const service = data.find(
@@ -39,7 +39,7 @@ const Order = () => {
       file: values.file,
       orderTime: new Date(),
     };
-    fetch("http://localhost:5000/addOrder", {
+    fetch("https://still-journey-92404.herokuapp.com/addOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderDetails),
@@ -60,7 +60,7 @@ const Order = () => {
   return (
     <section style={containerStyle} className="container-fluid row">
       <Sidebar></Sidebar>
-      <div className="col-lg-6">
+      <div className="col-md-10 p-4 pr-5">
         <div className="row mb-5 justify-content-md-center">
           <center>
             <h1 className="mt-5 text-center">Order A Service</h1>

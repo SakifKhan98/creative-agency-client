@@ -24,7 +24,7 @@ const AddService = () => {
     formData.append("name", info.name);
     formData.append("description", info.description);
 
-    fetch("http://localhost:5000/addService", {
+    fetch("https://still-journey-92404.herokuapp.com/addService", {
       method: "POST",
       body: formData,
     })
@@ -45,7 +45,8 @@ const AddService = () => {
   return (
     <section style={containerStyle} className="container-fluid row">
       <Sidebar></Sidebar>
-      <div className="col-lg-6">
+
+      <div className="col-md-10 p-4 pr-5">
         <div className="row mb-5 justify-content-md-center">
           <center>
             <h1 className="mt-5 text-center">Add Services</h1>
