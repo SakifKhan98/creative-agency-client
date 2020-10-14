@@ -53,24 +53,6 @@ const Order = () => {
       });
   };
 
-  // const onSubmit = (event) => {
-  //   const files = event.file;
-  //   const formData = new FormData();
-  //   formData.append("myFile", files[0]);
-
-  //   fetch("http://localhost:5000/addOrder", {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
   const containerStyle = {
     backgroundColor: "#F4F7FC",
     border: "none",

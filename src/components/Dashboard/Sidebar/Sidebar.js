@@ -4,9 +4,12 @@ import "./Sidebar.css";
 import logo from "../../../images/logos/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faShoppingCart,
+  faHdd,
+  faComments,
+  faPlus,
   faCog,
   faSignOutAlt,
-  faCalendar,
   faHome,
   faGripHorizontal,
   faUserPlus,
@@ -18,17 +21,17 @@ import { UserContext } from "../../../App";
 
 const Sidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  //   const [isDoctor, setIsDoctor] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  //   useEffect(() => {
-  //     fetch("https://still-basin-91522.herokuapp.com/isDoctor", {
-  //       method: "POST",
-  //       headers: { "content-type": "application/json" },
-  //       body: JSON.stringify({ email: loggedInUser.email }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => setIsDoctor(data));
-  //   }, []);
+  useEffect(() => {
+    fetch("http://localhost:5000/isAdmin", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email: loggedInUser.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data));
+  }, []);
 
   return (
     <div
@@ -50,40 +53,44 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faHome} /> <span>Home</span>
           </Link>
         </li>
-        {/* {isDoctor && ( */}
-        <div>
-          <li>
-            <Link to="/order" className="text-white">
-              <FontAwesomeIcon icon={faCalendar} /> <span>Order</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/serviceList" className="text-white">
-              <FontAwesomeIcon icon={faUsers} /> <span>Service List</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/postReview" className="text-white">
-              <FontAwesomeIcon icon={faFileAlt} /> <span>Review</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/serviceListAdmin" className="text-white">
-              <FontAwesomeIcon icon={faList} /> <span>Service List Admin</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/addService" className="text-white">
-              <FontAwesomeIcon icon={faUserPlus} /> <span>Add Service</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/makeAdmin" className="text-white">
-              <FontAwesomeIcon icon={faCog} /> <span>Make Admin</span>
-            </Link>
-          </li>
-        </div>
-        {/* )} */}
+        {isAdmin ? (
+          <div>
+            <li>
+              <Link to="/serviceListAdmin" className="text-white">
+                <FontAwesomeIcon icon={faList} />{" "}
+                <span>Service List Admin</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/addService" className="text-white">
+                <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/makeAdmin" className="text-white">
+                <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
+              </Link>
+            </li>
+          </div>
+        ) : (
+          <div>
+            <li>
+              <Link to="/order" className="text-white">
+                <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/serviceList" className="text-white">
+                <FontAwesomeIcon icon={faHdd} /> <span>Service List</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/postReview" className="text-white">
+                <FontAwesomeIcon icon={faComments} /> <span>Review</span>
+              </Link>
+            </li>
+          </div>
+        )}
       </ul>
       <div>
         <Link to="/" className="text-white">

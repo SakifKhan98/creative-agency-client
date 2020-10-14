@@ -9,29 +9,29 @@ import { Link } from "react-router-dom";
 
 const Brands = () => {
   return (
-    <div style={{ marginTop: 60, marginBottom: 140 }} class="container">
-      <div class="row">
-        <div class="col">
+    <div style={{ marginTop: 60, marginBottom: 140 }} className="container ">
+      <div className="row">
+        <div className="col">
           <Link>
             <img src={slack} alt="" />
           </Link>
         </div>
-        <div class="col">
+        <div className="col">
           <Link>
             <img src={google} alt="" />
           </Link>
         </div>
-        <div class="col">
+        <div className="col">
           <Link>
             <img src={uber} alt="" />
           </Link>
         </div>
-        <div class="col">
+        <div className="col">
           <Link>
             <img src={netflix} alt="" />
           </Link>
         </div>
-        <div class="col">
+        <div className="col">
           <Link>
             <img src={airbnb} alt="" />
           </Link>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Dropdown } from "react-bootstrap";
 import { UserContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 
@@ -22,25 +23,29 @@ const ServiceListAdmin = () => {
       <div style={{ marginTop: 30 }} className=" col">
         <h3 className="text-dark">Services List</h3>
         <table className="table table-borderless">
-          <thead>
+          <thead class="thead-dark">
             <tr>
-              <th className="text-secondary text-left" scope="col">
+              <th
+                style={{ width: "5%" }}
+                className="text-white text-left"
+                scope="col"
+              >
                 Sr No
               </th>
 
-              <th className="text-secondary" scope="col">
+              <th style={{ width: "10%" }} className="text-white" scope="col">
                 Name
               </th>
-              <th className="text-secondary" scope="col">
+              <th style={{ width: "15%" }} className="text-white" scope="col">
                 Email ID
               </th>
-              <th className="text-secondary" scope="col">
+              <th style={{ width: "18%" }} className="text-white" scope="col">
                 Service
               </th>
-              <th className="text-secondary" scope="col">
+              <th style={{ width: "40%" }} className="text-white" scope="col">
                 Project Details
               </th>
-              <th className="text-secondary" scope="col">
+              <th style={{ width: "12%" }} className="text-white" scope="col">
                 Status
               </th>
             </tr>
@@ -53,7 +58,18 @@ const ServiceListAdmin = () => {
                 <td>{srvclst.email}</td>
                 <td>{srvclst.orderedService}</td>
                 <td>{srvclst.description}</td>
-                <td>On Going</td>
+                <td>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      Done
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#">Pending</Dropdown.Item>
+                      <Dropdown.Item href="#">On Going</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </td>
               </tr>
             ))}
           </tbody>

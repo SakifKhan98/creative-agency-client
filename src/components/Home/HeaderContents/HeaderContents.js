@@ -24,7 +24,7 @@ const HeaderContents = () => {
           <button className="btn-brand text-white">Hire Us</button>
         </HashLink>
       </div>
-      <div className="col-md-7 pl-5">
+      <div className="col-md-7 pl-5 d-none d-sm-block">
         <img className="frame img-fluid" src={headerImg} alt="" />
       </div>
     </section>

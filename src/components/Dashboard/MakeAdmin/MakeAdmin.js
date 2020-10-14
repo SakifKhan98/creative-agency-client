@@ -12,7 +12,21 @@ const MakeAdmin = () => {
   const [info, setInfo] = useState({});
 
   const onSubmit = (values) => {
-    setInfo(values.email);
+    const adminDetails = {
+      email: values.email,
+    };
+
+    fetch("http://localhost:5000/addAdmin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(adminDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("New Admin Added Successfully");
+        }
+      });
   };
 
   const containerStyle = {
