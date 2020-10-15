@@ -43,12 +43,10 @@ const AddService = () => {
   };
 
   return (
-    <section style={containerStyle} className="container-fluid row">
-      <div>
-        <Sidebar></Sidebar>
-      </div>
+    <div style={containerStyle} className="container-fluid row">
+      <Sidebar></Sidebar>
 
-      <div className="col-md-10 p-4 pr-5">
+      <div className="col-md-10 p-4 pr-5 ml-auto">
         <div className="row mb-5 justify-content-md-center">
           <center>
             <h1 className="mt-5 text-center">Add Services</h1>
@@ -91,7 +89,7 @@ const AddService = () => {
           </button>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 

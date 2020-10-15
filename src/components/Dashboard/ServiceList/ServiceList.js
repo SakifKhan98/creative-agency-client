@@ -22,25 +22,23 @@ const ServiceList = () => {
     border: "none",
   };
   return (
-    <div>
-      <section style={containerStyle} className="container-fluid row">
-        <Sidebar></Sidebar>
-        <div className="col-md-10 p-4 pr-5">
-          <div className="row mb-5 justify-content-md-center">
-            <center>
-              <h1 className="mt-5 text-center">Ordered Services</h1>
-            </center>
-          </div>
-          <div className="row">
-            {servicesList.map((srvclst) => (
-              <ServiceListCard key={srvclst._id} service={srvclst}>
-                {srvclst.orderedService}
-              </ServiceListCard>
-            ))}
-          </div>
+    <section style={containerStyle} className="container-fluid row">
+      <Sidebar></Sidebar>
+      <div className="col-md-10 p-4 pr-5 ml-auto">
+        <div className="row mb-5 justify-content-md-center">
+          <center>
+            <h1 className="mt-5 text-center">Ordered Services</h1>
+          </center>
         </div>
-      </section>
-    </div>
+        <div className="row">
+          {servicesList.map((srvclst) => (
+            <ServiceListCard key={srvclst._id} service={srvclst}>
+              {srvclst.orderedService}
+            </ServiceListCard>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

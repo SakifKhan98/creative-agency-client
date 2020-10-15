@@ -37,90 +37,88 @@ const PostReview = () => {
   };
 
   return (
-    <div>
-      <section style={containerStyle} className="container-fluid row">
-        <Sidebar></Sidebar>
-        <div className="col-md-10 p-4 pr-5">
-          <div className="row mb-5 justify-content-md-center">
-            <center>
-              <h1 className="mt-5 text-center">Post A Review</h1>
-            </center>
-          </div>
-          <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-
-              <input
-                name="name"
-                placeholder="Your name"
-                defaultValue={loggedInUser.name}
-                className={`form-control`}
-                ref={register({ required: "Name is required" })}
-              />
-            </div>
-            <ErrorMessage
-              className="invalid-feedback"
-              name="fullName"
-              as="div"
-              errors={errors}
-            />
-            <div className="form-group">
-              <label htmlFor="image">Image</label>
-
-              <input
-                name="image"
-                placeholder="Your Image"
-                defaultValue={loggedInUser.image}
-                className={`form-control`}
-                ref={register({ required: "Image is required" })}
-              />
-            </div>
-            <ErrorMessage
-              className="invalid-feedback"
-              name="fullName"
-              as="div"
-              errors={errors}
-            />
-            <div className="form-group">
-              <label htmlFor="job">Company Name</label>
-
-              <input
-                name="job"
-                placeholder="Company's name, Designation"
-                className={`form-control`}
-                ref={register({ required: "Company name is required" })}
-              />
-            </div>
-            <ErrorMessage
-              className="invalid-feedback"
-              name="fullName"
-              as="div"
-              errors={errors}
-            />
-
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                style={{ height: 150 }}
-                name="description"
-                placeholder="Project Details"
-                className={`form-control`}
-                ref={register({ required: "Description is required" })}
-              />
-              <ErrorMessage
-                className="invalid-feedback"
-                name="description"
-                as="div"
-                errors={errors}
-              />
-            </div>
-
-            <button className="btn btn-brand text-white" type="submit">
-              Submit
-            </button>
-          </form>
+    <div style={containerStyle} className="container-fluid row">
+      <Sidebar></Sidebar>
+      <div className="col-md-10 p-4 pr-5 ml-auto">
+        <div className="row mb-5 justify-content-md-center">
+          <center>
+            <h1 className="mt-5 text-center">Post A Review</h1>
+          </center>
         </div>
-      </section>
+        <form className="col-md-10" onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+
+            <input
+              name="name"
+              placeholder="Your name"
+              defaultValue={loggedInUser.name}
+              className={`form-control`}
+              ref={register({ required: "Name is required" })}
+            />
+          </div>
+          <ErrorMessage
+            className="invalid-feedback"
+            name="fullName"
+            as="div"
+            errors={errors}
+          />
+          <div className="form-group">
+            <label htmlFor="image">Image</label>
+
+            <input
+              name="image"
+              placeholder="Your Image"
+              defaultValue={loggedInUser.image}
+              className={`form-control`}
+              ref={register({ required: "Image is required" })}
+            />
+          </div>
+          <ErrorMessage
+            className="invalid-feedback"
+            name="fullName"
+            as="div"
+            errors={errors}
+          />
+          <div className="form-group">
+            <label htmlFor="job">Company Name</label>
+
+            <input
+              name="job"
+              placeholder="Company's name, Designation"
+              className={`form-control`}
+              ref={register({ required: "Company name is required" })}
+            />
+          </div>
+          <ErrorMessage
+            className="invalid-feedback"
+            name="fullName"
+            as="div"
+            errors={errors}
+          />
+
+          <div className="form-group">
+            <label htmlFor="description">Description</label>
+            <input
+              style={{ height: 150 }}
+              name="description"
+              placeholder="Project Details"
+              className={`form-control`}
+              ref={register({ required: "Description is required" })}
+            />
+            <ErrorMessage
+              className="invalid-feedback"
+              name="description"
+              as="div"
+              errors={errors}
+            />
+          </div>
+
+          <button className="btn btn-brand text-white" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

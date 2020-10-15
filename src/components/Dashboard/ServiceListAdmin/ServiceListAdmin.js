@@ -18,7 +18,7 @@ const ServiceListAdmin = () => {
   return (
     <section style={containerStyle} className="container-fluid row">
       <Sidebar></Sidebar>
-      <div style={{ marginTop: 30 }} className=" col-md-10 p-4 pr-5">
+      <div style={{ marginTop: 30 }} className=" col-md-10 p-4 pr-5 ml-auto">
         <h3 className="text-dark">Services List</h3>
         <table className="table table-borderless">
           <thead class="thead-dark">
