@@ -1,5 +1,5 @@
 ## The site is totally working. Though it might be a bit broken on SQUARE SCREEN MONITORS. 
-## Please fill out all the form fields (including file/image uploads) to successfully place an order/ post a review / add a service. If you do not do so, the order/review/service will not be added.
+## Please fill out all the form fields (including file/image uploads) to successfully place an order/ post a review / add a service. If you do not do so, the order/review/service will not be added. Please use reload option of your browser to log-out  from the side.
 ## On some machine there may be a sidebar overlapping issue on the live site (it appeared only after deploying the site in firebase & though I fixed it), please let me know on my email. Email: sakifkhan98@gmail.com
 
 
