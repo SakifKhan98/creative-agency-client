@@ -1,9 +1,49 @@
-## The site is totally working. Though it might be a bit broken on SQUARE SCREEN MONITORS. 
-## Please fill out all the form fields (including file/image uploads) to successfully place an order/ post a review / add a service. If you do not do so, the order/review/service will not be added. Please use reload option of your browser to log-out  from the side.
-## On some machine there may be a sidebar overlapping issue on the live site (it appeared only after deploying the site in firebase & though I fixed it), please let me know on my email. Email: sakifkhan98@gmail.com
+# Creative Agency
+
+Creative Agency is a full-stack site that serves the purposes of a digital service providing agency.
+
+### The source code is uploaded at two parts in two repositories.
+
+> Live Link: https://creative-agency-70516.web.app
+> Client: https://github.com/SakifKhan98/creative-agency-client
+> Server: https://github.com/SakifKhan98/creative-agency-server
+
+## Installation
+
+Download the Zip or Clone the git, then run
+
+```bash
+npm install
+```
+
+then setUp a .env file in the server side code with your own sets of MongoDB uri
 
 
-## Working Flow
-After Clicking the login Button and logging in, it will take to you to dashboard. You can write a review, check your ordered services as a customer. As a customer after clicking on the services from home page, it ask you to log in (if you are not already logged in) and take you to order page to order the respective service. If you click on order on customer dashboard, it will take you to homepage's service portion, to select your desired service. programming.hero.instructor@gmail.com -- is added as admin. Please login using this mail to check the admin functionalities. An admin can check all the services ordered, add a new service & make a new admin.
+## Main Features
+  
+  
+  ** Customer Functionalities **
+- Customers can select their desired service
+- Order their desired service
+- See their ordered services & status from dashboard. 
+- Add a Review which will be shown at the homepage of the site.
 
-# creative-agency-client
+  ** Admin Functionalities **
+- An interactive dashboard for the admin
+- Admin can see all the orders placed by customers
+- Add new services, with image upload option which will be visible
+  at the home page
+- Add new admin & change the status of the order
+
+
+## Technology
+ - ReactJS
+ - React Router
+ - NodeJS
+ - ExpressJS
+ - MongoDB
+ - Firebase Authentication
+ - Heroku
+ - HTML/CSS
+ - Bootstrap/ Material UI
+ - etc.
