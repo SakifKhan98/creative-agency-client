@@ -10,37 +10,37 @@ Creative Agency is a full-stack site that serves the purposes of a digital servi
 
 > Server: https://github.com/SakifKhan98/creative-agency-server
 
-
 ## Main Features
-  
-  
-  **Customer Functionalities**
+
+**Customer Functionalities**
+
 - Customers can select their desired service
 - Order their desired service
-- See their ordered services & status from dashboard. 
+- See their ordered services & status from dashboard.
 - Add a Review which will be shown at the homepage of the site.
 
-  **Admin Functionalities**
+**Admin Functionalities**
+
 - An interactive dashboard for the admin
 - Admin can see all the orders placed by customers
 - Add new services, with image upload option which will be visible
   at the home page
 - Add new admin & change the status of the order
 
-
 ## Technology
- - ReactJS
- - React Router
- - NodeJS
- - ExpressJS
- - MongoDB
- - Firebase Authentication
- - Heroku
- - HTML/CSS
- - Bootstrap/ Material UI
- - etc.
- 
- ## Installation
+
+- ReactJS
+- React Router
+- NodeJS
+- ExpressJS
+- MongoDB
+- Firebase Authentication
+- Heroku
+- HTML/CSS
+- Bootstrap/ Material UI
+- etc.
+
+## Installation
 
 Download the Zip or Clone the git, then run
 
