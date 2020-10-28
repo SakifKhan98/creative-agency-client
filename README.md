@@ -11,30 +11,16 @@ Creative Agency is a full-stack site that serves the purposes of a digital servi
 > Server: https://github.com/SakifKhan98/creative-agency-server
 
 
-
-
-
-## Installation
-
-Download the Zip or Clone the git, then run
-
-```bash
-npm install
-```
-
-then setUp a .env file in the server side code with your own sets of MongoDB uri
-
-
 ## Main Features
   
   
-  ** Customer Functionalities **
+  **Customer Functionalities**
 - Customers can select their desired service
 - Order their desired service
 - See their ordered services & status from dashboard. 
 - Add a Review which will be shown at the homepage of the site.
 
-  ** Admin Functionalities **
+  **Admin Functionalities**
 - An interactive dashboard for the admin
 - Admin can see all the orders placed by customers
 - Add new services, with image upload option which will be visible
@@ -53,3 +39,13 @@ then setUp a .env file in the server side code with your own sets of MongoDB uri
  - HTML/CSS
  - Bootstrap/ Material UI
  - etc.
+ 
+ ## Installation
+
+Download the Zip or Clone the git, then run
+
+```bash
+npm install
+```
+
+then setUp a .env file in the server side code with your own sets of MongoDB uri
