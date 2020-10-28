@@ -5,14 +5,13 @@ Creative Agency is a full-stack site that serves the purposes of a digital servi
 ### The source code is uploaded at two parts in two repositories.
 
 > Live Link: https://creative-agency-70516.web.app
+
 > Client: https://github.com/SakifKhan98/creative-agency-client
+
 > Server: https://github.com/SakifKhan98/creative-agency-server
 
-	```
- Live Link: https://creative-agency-70516.web.app
- Client: https://github.com/SakifKhan98/creative-agency-client
- Server: https://github.com/SakifKhan98/creative-agency-server
-```
+
+
 
 
 ## Installation
